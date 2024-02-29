@@ -49,7 +49,7 @@ class userControllers {
   };
 
   login = (req, res) => {
-    let {email, password} = req.body;
+    let { email, password } = req.body;
 
     let sqlLogin = `SELECT * FROM user WHERE email = '${email}'`;
     connection.query(sqlLogin, (error, result) => {
@@ -72,8 +72,6 @@ class userControllers {
                   email: user.email,
                   name: user.name,
                   id: user.user_id,
-                  type: user.type,
-                  img: user.img_name,
                 },
               },
               process.env.SECRET,
@@ -86,14 +84,67 @@ class userControllers {
         });
       }
     });
-  }
+  };
 
-  editUser = (req, res) => {};
 
-  userProfile = (req, res) => {};
+  editUser = (req, res) => {
+    let user_id = req.params.user_id;
+
+    const {
+      name,
+      lastname,
+      dni,
+      address,
+      city,
+      province,
+      zip_code,
+      phone_number,
+      email,
+      password,
+    } = req.body;
+
+    if (password) {
+      let saltRounds = 8;
+      bcrypt.genSalt(saltRounds, (err, saltRounds) => {
+        if (err) console.log(err);
+        bcrypt.hash(password, saltRounds, (err, hash) => {
+          if (err) console.log(err);
+          let sqlEditAll = `UPDATE user SET name = '${name}', lastname = '${lastname}', dni = '${dni}', address = '${address}', city =
+          '${city}', province = '${province}', zip_code = '${zip_code}', phone_number = '${phone_number}', email = '${email}', password = '${hash}' WHERE user_id = '${user_id}'`;
+
+          connection.query(sqlEditAll, (error, result) => {
+            if (error) console.log(error);
+            error
+              ? res.status(400).json({ error })
+              : res.status(200).json({ result });
+          });
+        });
+      });
+    } else {
+      let sqlEditNoPassword = `UPDATE user SET name = '${name}', lastname = '${lastname}', dni = '${dni}', address = '${address}', city =
+      '${city}', province = '${province}', zip_code = '${zip_code}', phone_number = '${phone_number}', email = '${email}' WHERE user_id = '${user_id}'`;
+
+      connection.query(sqlEditNoPassword, (error, result) => {
+        error ? res.status(400).json(error)
+              : res.status(200).json(result);
+      });
+    }
+  };
+
+
+
+
+  userProfile = (req, res) => {
+    let user_id = req.params.user_id;
+    let sql = `SELECT * FROM user WHERE user_id = '${user_id}'`;
+
+    connection.query(sql, (error, result) => {
+      error ? res.status(400).json(error)
+            : res.status(200).json(result);
+    })
+  };
 
   userWishList = (req, res) => {};
-
 }
 
 module.exports = new userControllers();
