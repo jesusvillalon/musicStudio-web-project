@@ -6,6 +6,7 @@ const moment = require("moment");
 require("dotenv").config();
 
 class userControllers {
+
   register = (req, res) => {
     const {
       name,
@@ -69,9 +70,16 @@ class userControllers {
             const token = jwt.sign(
               {
                 user: {
-                  email: user.email,
-                  name: user.name,
                   id: user.user_id,
+                  name: user.name,
+                  lastname: user.lastname,
+                  dni: user.dni,
+                  address: user.address,
+                  city: user.city,
+                  province: user.province,
+                  zip_code: user.zip_code,
+                  phone_number: user.phone_number,
+                  email: user.email
                 },
               },
               process.env.SECRET,
@@ -93,6 +101,7 @@ class userControllers {
     const {
       name,
       lastname,
+      type,
       dni,
       address,
       city,
@@ -109,7 +118,7 @@ class userControllers {
         if (err) console.log(err);
         bcrypt.hash(password, saltRounds, (err, hash) => {
           if (err) console.log(err);
-          let sqlEditAll = `UPDATE user SET name = '${name}', lastname = '${lastname}', dni = '${dni}', address = '${address}', city =
+          let sqlEditAll = `UPDATE user SET name = '${name}', lastname = '${lastname}', type = '${type}', dni = '${dni}', address = '${address}', city =
           '${city}', province = '${province}', zip_code = '${zip_code}', phone_number = '${phone_number}', email = '${email}', password = '${hash}' WHERE user_id = '${user_id}'`;
 
           connection.query(sqlEditAll, (error, result) => {
