@@ -11,6 +11,7 @@ class userControllers {
     const {
       name,
       lastname,
+      type,
       dni,
       address,
       city,
@@ -32,8 +33,8 @@ class userControllers {
           if (err) console.log(err);
           bcrypt.hash(password, saltRounds, (err, hash) => {
             if (err) console.log(err);
-            let sql = `INSERT INTO user (name, lastname, dni, address, city, province, zip_code, phone_number, email, password)
-            VALUES ('${name}', '${lastname}', '${dni}', '${address}',
+            let sql = `INSERT INTO user (name, lastname, type, dni, address, city, province, zip_code, phone_number, email, password)
+            VALUES ('${name}', '${lastname}', 2,'${dni}', '${address}',
             '${city}', '${province}', '${zip_code}', '${phone_number}',
             '${email}', '${hash}')`;
 
@@ -137,7 +138,7 @@ class userControllers {
         error ? res.status(400).json(error)
               : res.status(200).json(result);
       });
-    }
+    };
   };
 
 
