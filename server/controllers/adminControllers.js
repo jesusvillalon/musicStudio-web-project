@@ -146,6 +146,84 @@ class adminControllers {
       error ? res.status(400).json(error) : res.status(200).json(result);
     });
   };
+
+  orderFinder = (req, res) => {
+    const { search_name } = req.body;
+
+    let sql = `SELECT * FROM orders WHERE name LIKE %${search_name}%`;
+    connection.query(sql, (error, result) => {
+      error ? res.status(400).json(error) : res.status(200).json(result);
+    });
+  };
+
+  getUserOrder = (req, res) => {
+    const user_id = req.params.user_id;
+    const order_id = req.params.order_id;
+
+    const sql = `
+    SELECT * FROM orders
+    WHERE user_id = '${user_id}' AND order_id = '${order_id}';
+  `;
+
+    connection.query(sql, (err, results) => {
+      if (err) {
+        console.error("Error al obtener el pedido del usuario:", err);
+        res
+          .status(500)
+          .json({ error: "Error al obtener el pedido del usuario" });
+      } else {
+        res.json({ order: results[0] }); // Suponiendo que solo hay un pedido con ese ID para el usuario
+      }
+    });
+  };
+
+
+  updateOrder = (req, res) => {
+    const user_id = req.params.user_id;
+    const order_id = req.params.order_id;
+    const { status } = req.body;
+
+
+    const updateSql = ` UPDATE orders SET status = '${status}' WHERE user_id = '${user_id}' AND order_id = '${order_id}';
+  `;
+
+    connection.query(updateSql, (error, results) => {
+      if (error) {
+        console.error("Error al actualizar el pedido del usuario:", error);
+        res
+          .status(500)
+          .json({ error: "Error al actualizar el pedido del usuario" });
+      } else {
+        res.status(200).json(results)
+        res.json({ message: "Pedido actualizado exitosamente" });
+      }
+    });
+  };
+
+  // Cancelar un pedido
+  cancelOrder = (req, res) => {
+    const user_id = req.params.user_id;
+    const order_id = req.params.order_id;
+
+    // Consulta SQL para cancelar un pedido específico de un usuario
+    const cancelSql = `
+    UPDATE orders
+    SET status = 'cancelled'
+    WHERE user_id = '${user_id}' AND order_id = '${order_id}';
+  `;
+
+    connection.query(cancelSql, (err, results) => {
+      if (err) {
+        console.error("Error al cancelar el pedido del usuario:", err);
+        res
+          .status(500)
+          .json({ error: "Error al cancelar el pedido del usuario" });
+      } else {
+        res.status(200).json(results)
+        res.json({ message: "Pedido cancelado exitosamente" });
+      }
+    });
+  };
 }
 
 module.exports = new adminControllers();

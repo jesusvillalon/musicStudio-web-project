@@ -43,5 +43,17 @@ router.get('/productFinder', adminControllers.productFinder);
 //localhost:3000/admin/userFinder
 router.get('/userFinder', adminControllers.userFinder);
 
+//11.- orderFinder
+router.get('/orderFinder', adminControllers.orderFinder);
+
+//12.- getUserOrder
+router.get('/admin/:user_id/orders/:order_id', adminControllers.getUserOrder);
+
+//13.- updateOrder
+router.put('/admin/:user_id/orders/:order_id', adminControllers.updateOrder);
+
+//14.- cancelOrder
+router.delete('/admin/:user_id/orders/:order_id', adminControllers.cancelOrder);
+
 
 module.exports = router;

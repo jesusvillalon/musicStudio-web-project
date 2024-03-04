@@ -19,9 +19,30 @@ router.put('/editUser/:user_id', userControllers.editUser);
 //localhost:3000/userProfile/:user_id
 router.get('/userProfile/:user_id', userControllers.userProfile);
 
-//5.- userWishList
-//localhost:3000/:user_id/wishList
-router.get('/:user_id/wishList', userControllers.userWishList)
+//5.- addProductToWishlist
+//localhost:3000/:user_id/addToWishList
+router.post('/:user_id/addToWishList', userControllers.addProductToWishList);
+
+//6.- userWishList
+//localhost:3000/:user_id/:wishList_id
+router.get('/:user_id/:wishList_id', userControllers.userWishList);
+
+//7.- deleteProductFromWishList
+//localhost:300/:user_id/deleteFromWishList
+router.delete('/:user_id/deleteFromWishList', userControllers.deleteProductFromWishList);
+
+//8.- addProductToCart
+//localhost:3000/:user_id/addToWishCart
+router.post('/:user_id/addToWishCart', userControllers.addProductToCart);
+
+//9.- userShoppingCart
+//localhost:3000/:user_id/:cart_id
+router.get('/:user_id/:wishList_id', userControllers.userShoppingCart);
+
+//10.- deleteProductFromCart
+//localhost:300/:user_id/deleteFromWishList
+router.delete('/:user_id/deleteFromWishList', userControllers.deleteProductFromCart);
+
 
 
 

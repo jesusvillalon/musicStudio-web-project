@@ -11,9 +11,18 @@ router.get('/', productsControllers.getAllProducts);
 //localhost:3000/products/:category
 router.get('/:category', productsControllers.getProductsByCategory);
 
-//3. - viewOneProduct
+//3.- viewOneProduct
 //localhost:3000/products/:product_id
 router.get('/product/:product_id', productsControllers.viewOneProduct);
+
+//4.- addReview
+//localhost:3000/products/:product_id/addReview
+
+//5.- getReviews
+//localhost:3000/products/reviews
+
+//6.- deleteReview
+//localhost:3000/products/:product_id/deleteReview
 
 
 module.exports = router;

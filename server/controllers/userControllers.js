@@ -6,7 +6,6 @@ const moment = require("moment");
 require("dotenv").config();
 
 class userControllers {
-
   register = (req, res) => {
     const {
       name,
@@ -80,7 +79,7 @@ class userControllers {
                   province: user.province,
                   zip_code: user.zip_code,
                   phone_number: user.phone_number,
-                  email: user.email
+                  email: user.email,
                 },
               },
               process.env.SECRET,
@@ -94,7 +93,6 @@ class userControllers {
       }
     });
   };
-
 
   editUser = (req, res) => {
     let user_id = req.params.user_id;
@@ -135,26 +133,95 @@ class userControllers {
       '${city}', province = '${province}', zip_code = '${zip_code}', phone_number = '${phone_number}', email = '${email}' WHERE user_id = '${user_id}'`;
 
       connection.query(sqlEditNoPassword, (error, result) => {
-        error ? res.status(400).json(error)
-              : res.status(200).json(result);
+        error ? res.status(400).json(error) : res.status(200).json(result);
       });
-    };
+    }
   };
-
-
-
 
   userProfile = (req, res) => {
     let user_id = req.params.user_id;
     let sql = `SELECT * FROM user WHERE user_id = '${user_id}'`;
 
     connection.query(sql, (error, result) => {
-      error ? res.status(400).json(error)
-            : res.status(200).json(result);
-    })
+      error ? res.status(400).json(error) : res.status(200).json(result);
+    });
   };
 
-  userWishList = (req, res) => {};
-}
+  addProductToWishList = (req, res) => {
+    let user_id = req.params.user_id;
+    let product_id = req.params.product_id;
+
+    let sql = `INSERT INTO wishlist (user_id, product_id) VALUES ('${user_id}', '${product_id}')`;
+
+    connection.query(sql, (error, result) => {
+      error ? res.status(400).json(error)
+            : res.stuatus(200).json(result);
+    });
+
+  };
+
+  userWishList = (req, res) => {
+    let user_id = req.params.user_id;
+    let wishList_id = req.params.wishList_id;
+
+    let sqlWishList = `SELECT product.product_id, product.name, product.category, product.description, product.price, product.availability, product.rating, product.img FROM wishList JOIN product ON wishList.product_id = product.product_id
+    WHERE wishList.user_id = '${user_id}' AND wishList.list_id = '${wishList_id}';`;
+
+    connection.query(sqlWishList, (error, result) => {
+      error ? res.status(400).json(error) : res.status(200).json(result);
+    });
+  };
+
+  deleteProductFromWishList = (req, res) => {
+    let user_id = req.params.user_id;
+    let product_id = req.params.product_id;
+
+    let sql = `DELETE FROM wishlist WHERE user_id = '${user_id}' AND product_id = '${product_id}'`;
+
+    connection.query(sql, (error, result) =>{
+      error ? res.status(400).json(error)
+            : res.status(200).json(result);
+    });
+  };
+
+  addProductToCart = (req, res) => {
+    let user_id = req.params.user_id;
+    let product_id = req.params.product_id;
+
+    let sql = `INSERT INTO shoppingCart (user_id, product_id) VALUES ('${user_id}', '${product_id}')`;
+
+    connection.query(sql, (error, result) => {
+      error ? res.status(400).json(error)
+            : res.stuatus(200).json(result);
+    });
+
+  };
+
+  userShoppingCart = (req, res) => {
+    let user_id = req.params.user_id;
+    let cart_id = req.params.cart_id;
+
+    let sqlCart = `SELECT product.product_id, product.name, product.category, product.description, product.price, product.availability, product.rating, product.img FROM shoppingCart JOIN product ON shoppingCart.product_id = product.product_id
+    WHERE shoppingCart.user_id = '${user_id}' AND shoppingCart.list_id = '${cart_id}';`;
+
+    connection.query(sqlCart, (error, result) => {
+      error ? res.status(400).json(error) : res.status(200).json(result);
+    });
+  };
+
+  deleteProductFromCart = (req, res) => {
+    let user_id = req.params.user_id;
+    let product_id = req.params.product_id;
+
+    let sql = `DELETE FROM shoppingCart WHERE user_id = '${user_id}' AND product_id = '${product_id}'`;
+
+    connection.query(sql, (error, result) =>{
+      error ? res.status(400).json(error)
+            : res.status(200).json(result);
+    });
+  };
+
+
+};
 
 module.exports = new userControllers();

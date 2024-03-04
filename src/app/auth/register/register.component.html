@@ -1,0 +1,58 @@
+<div class="register-container">
+  <h2 class="text-center">Formulario de Registro</h2>
+  <form class="registerForm m-4" autocomplete="off">
+
+    <div class="mb-3">
+      <label class="col-form-label">Nombre de usuario</label>
+      <div class="">
+        <input  type="text" class="form-control" placeholder="Introduzca nombre" />
+        <span class="form-text text-danger">
+          "Error nombre"
+        </span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="col-form-label">Email</label>
+      <div class="">
+        <input  type="email" class="form-control" placeholder="Email del usuario" />
+
+        <span  class="form-text text-danger">
+          Debe ser un email
+        </span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="col-form-label">Contraseña</label>
+      <div class="">
+        <input  type="password" class="form-control" placeholder="Introduzca contraseña" />
+
+        <span  class="form-text text-danger">
+          La contraseña debe de ser mayor de 8 caracteres.
+        </span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="col-form-label">Confirmación Contraseña</label>
+      <div class="">
+        <input  type="password" class="form-control"
+          placeholder="Confirmar contraseña" />
+
+        <span  class="form-text text-danger">
+          Las contraseñas deben de ser iguales
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col register-submit-button-container">
+        <button  class="btn btn-primary register-submit-button mt-3" type="submit">
+          Registrar
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
