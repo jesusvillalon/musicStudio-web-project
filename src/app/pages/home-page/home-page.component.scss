@@ -9,16 +9,15 @@
   }
 }
 .header-container {
-  background-image: url('../../../assets/images/web-images/portadaHome.jpeg');
-  background-position: center;
+  background-image: url('../../../assets/images/web-images/portadaHome2.jpeg');
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   padding: 20%;
   .h1-Title{
     font-size: 60px;
+    position: relative;
+    bottom: 200px;
   }
 }
