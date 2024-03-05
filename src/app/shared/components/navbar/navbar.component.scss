@@ -1,0 +1,24 @@
+.search-input{
+  border: none;
+}
+.search-input:hover{
+  background-color: transparent;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
+}
+.searchLogo{
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.3));
+}
+.btn-color{
+  border: none;
+  color: black;
+  font-size: 18px;
+}
+.btn-color:hover{
+  background-color: #7c898b;
+  color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.cartLogoButton{
+  cursor: pointer;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+}
