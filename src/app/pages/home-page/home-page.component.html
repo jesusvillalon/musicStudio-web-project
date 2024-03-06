@@ -1,5 +1,5 @@
 <nav>
-<app-navbar/>
+  <app-navbar />
 </nav>
 <div>
   <div class="option-container text-center mt-2 mb-3">
@@ -11,12 +11,37 @@
     <a class="option-links" href="">OFERTAS</a>
   </div>
   <header class="header-main-container">
-    <div class="header-container d-flex justify-content-center">
-      <h1 class="h1-Title">Bienvenido a MusicStudio</h1>
+    <div
+      class="header-container d-flex align-items-center justify-content-center flex-column"
+    >
+      <p class="p-Title">Bienvenido a</p>
+      <h1 class="h1-Title">MusicStudio</h1>
     </div>
   </header>
   <section class="section1-container text-center my-4">
-    <h3>NUESTROS PRODUCTOS</h3>
+    <h3 class="my-5">NUESTROS PRODUCTOS</h3>
+    <div class="row align-items-center">
+      <div
+        *ngFor="let category of categories"
+        class="categoriesCard-container col-md-3 mb-4 d-flex justify-content-center"
+      >
+        <div class="">
+          <article>
+            <figure>
+              <img [src]="category.image"
+              class="card-img-top categoryImg"
+              alt="categoryImg" />
+            </figure>
+          </article>
+          <a href="#" class="card-body">
+            <h5 class="card-title">{{ category.categoryName }}</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
   </section>
   <section class="section2-container text-center my-4">
     <h3>NUESTRAS VENTAJAS</h3>
@@ -27,8 +52,7 @@
   <section class="section4-container text-center my-4">
     <h3>LAS MEJORES MARCAS</h3>
   </section>
-
 </div>
 <footer>
-  <app-footer/>
+  <app-footer />
 </footer>
