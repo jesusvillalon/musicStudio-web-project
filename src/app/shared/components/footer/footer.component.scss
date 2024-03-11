@@ -1,6 +1,32 @@
 .footer-container{
   background-color: #7c898b;
   color: white;
-  padding: 100px;
-  text-align: center;
+  padding: 100px 50px 25px 50px;
+  .titleText{
+    text-decoration:underline;
+  }
+  .logo{
+    .logoImg{
+      width: 200px;
+    }
+  }
+  .contactInformation{
+    p{
+      margin: 2px 0;
+    }
+  }
+  .info{
+    a{
+      margin: 2px 0;
+    }
+  }
+  .rrss{
+    img{
+      width: 60%;
+      filter: invert(100%);
+    }
+  }
+  h6{
+    margin: 100px 0 0 0;
+  }
 }

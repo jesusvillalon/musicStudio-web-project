@@ -1,4 +1,40 @@
-<div class="footer-container d-flex justify-content-center">
-  <p>footer works!</p>
-
+<div class="footer-container">
+  <div class="d-flex justify-content-around">
+  <section class="logo">
+    <img class="logoImg" src="../../../../assets/images/Logos/Logo5.png" alt="">
+  </section>
+  <section class="contactInformation">
+    <h4 class="titleText">Contáctanos</h4>
+    <p>c/ Falsa, 123, Málaga</p>
+    <p>952123456</p>
+    <p>info@musicstudio.com</p>
+    <p>Lunes a viernes de</p>
+    <p>9:00h a 17:00h</p>
+  </section>
+  <section class="info d-flex flex-column">
+    <h4 class="titleText">Información</h4>
+    <a>Quiénes somos</a>
+    <a>Preguntas frecuentes</a>
+    <a>Condiciones generales</a>
+    <a>Privacidad</a>
+    <a>Envíos y devoluciones</a>
+    <a>Garantía de los productos</a>
+  </section>
+  <section class="info2">
+    <div >
+      <h4 class="titleText">Síguenos en</h4>
+      <div class="rrss d-flex">
+        <div *ngFor="let rrss of socialMedia1">
+          <img [src]="rrss.logoImg" [alt]="rrss.title" />
+        </div>
+      </div>
+      <div class="rrss d-flex mt-3">
+        <div *ngFor="let rrss of socialMedia2">
+          <img [src]="rrss.logoImg" [alt]="rrss.title" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<h6 class="text-center">© 2024 Jesús Villalón. All rights reserved. </h6>
 </div>
