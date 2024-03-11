@@ -24,7 +24,7 @@
       <div
         class="categoriesCard-container d-flex flex-wrap justify-content-center"
       >
-        <div *ngFor="let category of categories1" class="card-container mx-4">
+        <div *ngFor="let category of categories1" class="card-container mx-5">
           <a href="#" class="cardLink">
             <figure class="cardBody">
               <img
@@ -40,7 +40,7 @@
       <div
         class="categoriesCard-container d-flex flex-wrap justify-content-center"
       >
-        <div *ngFor="let category of categories2" class="card-container mx-4">
+        <div *ngFor="let category of categories2" class="card-container mx-5">
           <a href="#" class="cardLink">
             <figure class="cardBody">
               <img
@@ -92,11 +92,40 @@
       </div>
     </div>
   </section>
-  <section class="section3-container text-center my-4">
-    <h3>(HACER MEJOR LA CUADRÍCULA)</h3>
+  <section class="section3-container text-center">
+    <div class="primero">
+      <div class="item1">
+        <h3 class="itemText">Pack KRK Rokit + soporte de escritorio</h3>
+        <img class="itemImg" src="../../../assets/images/web-images/krk.png" alt="">
+      </div>
+      <div class="item1-1">
+        <h3 class="itemText">FL Studio con un 30% de descuento</h3>
+        <img class="itemImg" src="../../../assets/images/web-images/flstudio.png" alt="">
+      </div>
+    </div>
+    <div class="segundo">
+      <div class="item2">
+        <img class="item2Img" src="../../../assets/images/web-images/apollo.png" alt="">
+      </div>
+      <div class="item3">
+        <h3 class="itemText">Micrófono de alta calidad</h3>
+        <img class="itemImg" src="../../../assets/images/web-images/at2020.png" alt="">
+      </div>
+      <div class="item2-2">
+        <img class="item2Img" src="../../../assets/images/web-images/arturia.png" alt="">
+      </div>
+    </div>
   </section>
-  <section class="section4-container text-center my-4">
+  <section class="section4-container text-center">
     <h3>LAS MEJORES MARCAS</h3>
+    <div class="slider">
+      <div class="slide-track">
+        <div class="slide mx-5"
+        *ngFor="let brand of brands">
+          <img [src]="brand.image" height="160" width="270" [alt]="brand.name" />
+        </div>
+      </div>
+    </div>
   </section>
 </div>
 <footer>

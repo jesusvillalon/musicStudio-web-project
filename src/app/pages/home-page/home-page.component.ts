@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Benefits } from 'src/app/shared/interfaces/benefits.interface';
+import { Brands } from 'src/app/shared/interfaces/brands.interface';
 import { HomeCategories } from 'src/app/shared/interfaces/home-categories.interface';
 
 @Component({
@@ -76,6 +77,57 @@ public benefits2: Benefits[] = [
     title: '30 días de devoluciones'
   },
 ]
+
+public brands: Brands[] = [
+  {image: '../../../assets/images/brands/akg.jpg',
+  name: 'akg'
+  },
+  {image: '../../../assets/images/brands/audio_technica.jpg',
+  name: 'audio-technica'
+  },
+  {image: '../../../assets/images/brands/behringer.jpg',
+  name: 'behringer'
+  },
+  {image: '../../../assets/images/brands/beyerdynamic.jpg',
+  name: 'beyerdynamic'
+  },
+  {image: '../../../assets/images/brands/boss.jpg',
+  name: 'boss'
+  },
+  {image: '../../../assets/images/brands/korg.jpg',
+  name: 'korg'
+  },
+  {image: '../../../assets/images/brands/kramer.png',
+  name: 'kramer'
+  },
+  {image: '../../../assets/images/brands/ludwig.jpg',
+  name: 'ludwig'
+  },
+  {image: '../../../assets/images/brands/native_instruments.jpg',
+  name: 'native-instrument'
+  },
+  {image: '../../../assets/images/brands/nord.jpg',
+  name: 'nord'
+  },
+  {image: '../../../assets/images/brands/rode.jpg',
+  name: 'rode'
+  },
+  {image: '../../../assets/images/brands/roland.jpg',
+  name: 'roland'
+  },
+  {image: '../../../assets/images/brands/sennheiser.jpg',
+  name: 'sennheiser'
+  },
+  {image: '../../../assets/images/brands/udg.jpg',
+  name: 'udg'
+  },
+  {image: '../../../assets/images/brands/universal_audio.jpg',
+  name: 'universal-audio'
+  },
+  {image: '../../../assets/images/brands/yamaha.jpg',
+  name: 'yamaha'
+  },
+];
 
 
 }
