@@ -1,0 +1,38 @@
+.login-container {
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.319);
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  .loginFormContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 80px;
+    .btn-bg{
+      background-color: #7c898b;
+      color: white;
+    }
+    .registerLink {
+      cursor: pointer;
+      color: #b29e84;
+    }
+  }
+  .imageFormContainer {
+    .loginImage {
+      width: 100%;
+      // height: 100%;
+      padding-right: none;
+      object-fit: cover;
+      object-position: center;
+      border-top-right-radius: 18px;
+      border-bottom-right-radius: 18px;
+      box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.282);
+    }
+  }
+}

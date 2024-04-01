@@ -1,1 +1,51 @@
-<p>login works!</p>
+<app-navbar />
+<div class="container login-container">
+  <div class="row">
+    <div class="col-7 loginFormContainer">
+      <h2>Inicia sesión</h2>
+      <form class="container formContainer my-5"
+      [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+      >
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            formControlName="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-bg">Submit</button>
+      </form>
+      <div class="registerLinkContainer">
+        <h6>
+          ¿Aún no estás registrado?
+          <a (click)="redirectToRegister()" class="registerLink"
+            >Registrate aquí.</a
+          >
+        </h6>
+      </div>
+    </div>
+    <div class="col-5 imageFormContainer">
+      <img
+        class="loginImage"
+        src="../../../assets/images/web-images/posibleLogin.jpeg"
+        alt="loginImg"
+      />
+    </div>
+  </div>
+</div>
+
+<app-footer />

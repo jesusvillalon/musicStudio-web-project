@@ -154,10 +154,8 @@ class userControllers {
     let sql = `INSERT INTO wishlist (user_id, product_id) VALUES ('${user_id}', '${product_id}')`;
 
     connection.query(sql, (error, result) => {
-      error ? res.status(400).json(error)
-            : res.stuatus(200).json(result);
+      error ? res.status(400).json(error) : res.stuatus(200).json(result);
     });
-
   };
 
   userWishList = (req, res) => {
@@ -178,9 +176,8 @@ class userControllers {
 
     let sql = `DELETE FROM wishlist WHERE user_id = '${user_id}' AND product_id = '${product_id}'`;
 
-    connection.query(sql, (error, result) =>{
-      error ? res.status(400).json(error)
-            : res.status(200).json(result);
+    connection.query(sql, (error, result) => {
+      error ? res.status(400).json(error) : res.status(200).json(result);
     });
   };
 
@@ -191,10 +188,8 @@ class userControllers {
     let sql = `INSERT INTO shoppingCart (user_id, product_id) VALUES ('${user_id}', '${product_id}')`;
 
     connection.query(sql, (error, result) => {
-      error ? res.status(400).json(error)
-            : res.stuatus(200).json(result);
+      error ? res.status(400).json(error) : res.stuatus(200).json(result);
     });
-
   };
 
   userShoppingCart = (req, res) => {
@@ -215,13 +210,10 @@ class userControllers {
 
     let sql = `DELETE FROM shoppingCart WHERE user_id = '${user_id}' AND product_id = '${product_id}'`;
 
-    connection.query(sql, (error, result) =>{
-      error ? res.status(400).json(error)
-            : res.status(200).json(result);
+    connection.query(sql, (error, result) => {
+      error ? res.status(400).json(error) : res.status(200).json(result);
     });
   };
-
-
-};
+}
 
 module.exports = new userControllers();

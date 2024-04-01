@@ -1,58 +1,207 @@
-<div class="register-container">
-  <h2 class="text-center">Formulario de Registro</h2>
-  <form class="registerForm m-4" autocomplete="off">
+<app-navbar />
+<div class="container register-container">
+  <div class="row">
+    <div class="col-5 imageFormContainer">
+      <img
+        class="registerImage"
+        src="../../../assets/images/web-images/posibleRegistro.jpeg"
+        alt="registerImg"
+      />
+    </div>
+    <div class="col-7 registerFormContainer">
+      <h2>Crea una cuenta</h2>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()"
+      class=" container registerForm my-5">
+        <div class="mb-3">
+          <label class="col-form-label">Nombre</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduzca nombre"
+              formControlName="name"
+            />
+            <span *ngIf="isValidField('name')" class="form-text text-danger">
+              {{ getFieldMessageError("name") }}
+            </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label">Apellidos</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduzca apellidos"
+              formControlName="lastname"
+            />
+            <span *ngIf="isValidField('lastname')" class="form-text text-danger">
+              {{ getFieldMessageError("lastname") }}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" col-6 mb-3">
+            <label class="col-form-label">Dni</label>
+            <div class="">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Introduzca dni"
+                formControlName="dni"
+              />
+              <span *ngIf="isValidField('dni')" class="form-text text-danger">
+                {{ getFieldMessageError("dni") }}
+              </span>
+            </div>
+          </div>
+          <div class=" col-6 mb-3">
+            <label class="col-form-label">Teléfono</label>
+            <div class="">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Introduzca teléfono"
+                formControlName="phone_number"
+              />
+              <span *ngIf="isValidField('phone_number')" class="form-text text-danger">
+                {{ getFieldMessageError("phone_number") }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label">Dirección</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduzca dirección"
+              formControlName="address"
+            />
+            <span *ngIf="isValidField('address')" class="form-text text-danger">
+              {{ getFieldMessageError("address") }}
+            </span>
+          </div>
+        </div>
+       <div class="row">
+        <div class="col-6 mb-3">
+          <label class="col-form-label">Ciudad</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduzca ciudad"
+              formControlName="city"
+            />
+            <span *ngIf="isValidField('city')" class="form-text text-danger">
+              {{ getFieldMessageError("city") }}
+            </span>
+          </div>
+        </div>
+        <div class="col-6 mb-3">
+          <label class="col-form-label">Provincia</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduzca provincia"
+              formControlName="province"
+            />
+            <span *ngIf="isValidField('province')" class="form-text text-danger">
+              {{ getFieldMessageError("province") }}
+            </span>
+          </div>
+        </div>
+       </div>
+        <div class="mb-3">
+          <label class="col-form-label">Código postal</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Introduzca código postal"
+              formControlName="zip_code"
+            />
+            <span *ngIf="isValidField('zip_code')" class="form-text text-danger">
+              {{ getFieldMessageError("zip_code") }}
+            </span>
+          </div>
+        </div>
 
-    <div class="mb-3">
-      <label class="col-form-label">Nombre de usuario</label>
-      <div class="">
-        <input  type="text" class="form-control" placeholder="Introduzca nombre" />
-        <span class="form-text text-danger">
-          "Error nombre"
-        </span>
+        <div class="mb-3">
+          <label class="col-form-label">Email</label>
+          <div class="">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+            />
+
+            <span *ngIf="isValidField('email')" class="form-text text-danger">
+              {{ getFieldMessageError('email') }}
+            </span>
+
+            <span *ngIf="!isEmailValid && userForm.get('email')?.touched" class="form-text text-danger">
+              Debe ser un email
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="col-form-label">Contraseña</label>
+          <div class="">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Introduzca contraseña"
+              formControlName="password"
+            />
+
+            <span *ngIf="isValidField('password')" class="form-text text-danger">
+              La contraseña debe de ser mayor de 8 caracteres.
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="col-form-label">Confirmación Contraseña</label>
+          <div class="">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Confirmar contraseña"
+              formControlName="confirmPassword"
+            />
+
+            <span *ngIf="isValidField('confirmPassword')" class="form-text text-danger">
+              Las contraseñas deben de ser iguales
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col register-submit-button-container">
+            <button
+            (ngSubmit)="onSubmit()"
+              class="btn btn-bg yregister-submit-button mt-3"
+              type="submit"
+            >
+              Registrar
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="loginLinkContainer">
+        <h6>
+          ¿Ya tienes una cuenta con nosotros?
+          <a (click)="redirectToRegister()" class="loginLink"
+            >Inicia sesión aquí.</a
+          >
+        </h6>
       </div>
     </div>
-
-    <div class="mb-3">
-      <label class="col-form-label">Email</label>
-      <div class="">
-        <input  type="email" class="form-control" placeholder="Email del usuario" />
-
-        <span  class="form-text text-danger">
-          Debe ser un email
-        </span>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label class="col-form-label">Contraseña</label>
-      <div class="">
-        <input  type="password" class="form-control" placeholder="Introduzca contraseña" />
-
-        <span  class="form-text text-danger">
-          La contraseña debe de ser mayor de 8 caracteres.
-        </span>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label class="col-form-label">Confirmación Contraseña</label>
-      <div class="">
-        <input  type="password" class="form-control"
-          placeholder="Confirmar contraseña" />
-
-        <span  class="form-text text-danger">
-          Las contraseñas deben de ser iguales
-        </span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col register-submit-button-container">
-        <button  class="btn btn-primary register-submit-button mt-3" type="submit">
-          Registrar
-        </button>
-      </div>
-    </div>
-
-  </form>
+  </div>
 </div>
+<app-footer />
