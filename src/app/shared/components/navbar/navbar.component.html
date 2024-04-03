@@ -1,17 +1,25 @@
 <div class="navbar">
   <div class="container-fluid px-4">
     <form class="d-flex align-items-center" role="search">
-      <img class="searchLogo" src="../../../../assets/images/iconos/lupa.png" alt="searchIcon"
-      width="23"
-        height="23">
+      <img
+        class="searchLogo"
+        src="../../../../assets/images/iconos/lupa.png"
+        alt="searchIcon"
+        width="23"
+        height="23"
+      />
       <input
-        class="form-control search-input "
+        class="form-control search-input"
         type="search"
         placeholder="Busca un producto"
         aria-label="Search"
-      >
+      />
     </form>
-    <a class="navbar-brand " href="#">
+    <a class="navbar-brand" href="#"
+
+    style="margin-right: 0;"
+
+    >
       <img
         src="../../../../assets/images/Logos/MainLogo.png"
         alt="MainLogo"
@@ -20,17 +28,39 @@
       />
     </a>
     <div class="d-flex align-items-center">
-      <button class="btn btn-color"
-      (click)="redirectToLogin()"
-      >Log In</button>
-      <a href="#" class="cartLogoButton ms-3">
-        <img src="../../../../assets/images/iconos/carrito.png" alt="cartLogo"
-        width="50"
-        height="50"/>
+      <div class="login-container" *ngIf="!isUserAuthenticated; else logged">
+        <button class="btn btn-color me-3" (click)="redirectToLogin()">
+          Log In
+        </button>
+      </div>
+      <ng-template #logged>
+        <div class="dropdown-container">
+          <ul class=" btn-color2">
+            <li><a (click)="toggleDropdown()">Hola {{ userData?.name | titlecase }} &dtrif;</a>
+              <ul class="dropdown" [ngClass]="{ 'show': isDropdownOpen }">
+                <li><a class="link" [routerLink]="['/userProfile']"> Mi perfil</a></li>
+                <li><a class="link" [routerLink]="['/']"> Home</a></li>
+                <li><a class="link" (click)="logOut()">
+                  Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </ng-template>
+
+      <a href="#" class="cartLogoButton">
+        <img
+          src="../../../../assets/images/iconos/carrito.png"
+          alt="cartLogo"
+          width="50"
+          height="50"
+        />
       </a>
     </div>
   </div>
 </div>
 <div class="d-flex justify-content-center">
-  <hr style="width: 1500px;">
+  <hr style="width: 1500px" />
 </div>
+

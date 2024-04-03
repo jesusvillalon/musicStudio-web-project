@@ -28,8 +28,12 @@ export class LoginComponent {
     if(this.loginForm.valid){
       const userData = this.loginForm.value;
       this.authService.loginUser(userData).subscribe(
-        (user) => {
-          this.router.navigate(['/'])
+        (response: {token: string}) => {
+          this.authService.setAuthToken(response.token)
+          this.router.navigate(['/userProfile'])
+        },
+        (error) => {
+          console.error('Login failed', error);
         }
       )
     }
