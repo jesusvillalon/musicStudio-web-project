@@ -17,6 +17,12 @@
             aria-describedby="emailHelp"
             formControlName="email"
           />
+          <span
+          *ngIf="!isEmailValid && this.loginForm.get('email')?.touched"
+          class="form-text text-danger"
+        >
+          Ingrese un correo con un formato válido
+        </span>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -26,6 +32,9 @@
             id="exampleInputPassword1"
             formControlName="password"
           />
+          <span *ngIf="isValidField('password')" class="form-text text-danger">
+            La contraseña debe de ser mayor o igual a 8 caracteres.
+          </span>
         </div>
         <button type="submit" class="btn btn-bg">Submit</button>
       </form>

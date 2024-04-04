@@ -1,45 +1,68 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap, throwError } from 'rxjs';
 import { UserData } from 'src/environments/interfaces/userData.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  private baseUrl = 'http://localhost:3000/users'
+  private baseUrl = 'http://localhost:3000/users';
   private localStorageKey = 'authToken';
+  private userId?: string;
 
-  constructor(private http: HttpClient) {};
+  constructor(private http: HttpClient) {}
 
+  registerUser(userData: UserData): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, userData);
+  }
 
-   registerUser (userData: any): Observable<any>{
-    return this.http.post(`${this.baseUrl}/register`, userData)
-   }
+  loginUser(userData: {
+    email: string;
+    password: string;
+  }): Observable<{ token: string; user: any }> {
+    return this.http
+      .post<{ token: string; user: any }>(`${this.baseUrl}/login`, userData)
+      .pipe(
+        tap((response: { token: string; user: any }) => {
+          this.setAuthToken(response.token);
+          this.setUserId(response.user.user_id);
+          localStorage.setItem('authToken', response.token);
+          localStorage.setItem('userId', response.user.user_id);
+        })
+      );
+  }
 
-   loginUser (userData: {email: string, password: string}): Observable<any>{
-    return this.http.post(`${this.baseUrl}/login`, userData);
-   }
+  getUserData(): Observable<UserData> {
+    const userId = localStorage.getItem('userId');
+    return this.http.get<UserData>(`${this.baseUrl}/userProfile/${userId}`);
+  }
 
-   setAuthToken(token: string){
+  setAuthToken(token: string) {
     localStorage.setItem(this.localStorageKey, token);
-   }
+  }
 
-   getAuthToken(): string | null {
+  getAuthToken(): string | null {
     return localStorage.getItem(this.localStorageKey);
-   }
+  }
 
-   removeAuthToken(){
+  removeAuthToken() {
     localStorage.removeItem(this.localStorageKey);
-   }
+  }
 
-   isAuthenticated(): boolean {
+  isAuthenticated(): boolean {
     return !!this.getAuthToken();
-   }
+  }
 
-   getUserData(): Observable<UserData> {
-    return this.http.get<UserData>(`${this.baseUrl}/userProfile/`);
-   }
+  setUserId(userId: string) {
+    this.userId = userId;
+  }
 
+  getUserId(): string | undefined {
+    return this.userId;
+  }
+
+  removeUserIdFromStorage() {
+    localStorage.removeItem('userId');
+  }
 }

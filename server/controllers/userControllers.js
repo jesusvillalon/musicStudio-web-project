@@ -143,9 +143,18 @@ class userControllers {
     let sql = `SELECT * FROM user WHERE user_id = '${user_id}'`;
 
     connection.query(sql, (error, result) => {
-      error ? res.status(400).json(error) : res.status(200).json(result);
+      if (error) {
+        res.status(400).json(error);
+      } else {
+        if (result && result.length > 0) {
+          res.status(200).json(result[0]); // Devolver solo el primer resultado
+        } else {
+          res.status(404).json("Usuario no encontrado");
+        }
+      }
     });
   };
+
 
   addProductToWishList = (req, res) => {
     let user_id = req.params.user_id;

@@ -1,5 +1,5 @@
 export interface UserData {
-  id: string;
+  id?: string;
   name: string;
   lastname: string;
   type: number;
@@ -10,5 +10,4 @@ export interface UserData {
   zip_code: string;
   phone_number: string;
   email: string;
-  password: string;
 }

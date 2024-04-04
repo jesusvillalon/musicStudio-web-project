@@ -11,7 +11,18 @@ import { ValidatorsService } from '../validators/validators.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  public userData?: UserData;
+  public userData: UserData = {
+    name: '',
+    lastname: '',
+    type: 0,
+    dni: '',
+    address: '',
+    city: '',
+    province: '',
+    zip_code: '',
+    phone_number: '',
+    email: ''
+  };
   public currentUserId?: number;
 
   public userForm: FormGroup = this.fb.group(

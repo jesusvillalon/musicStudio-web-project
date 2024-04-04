@@ -3,57 +3,53 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UserData } from '../../../../environments/interfaces/userData.interface';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit{
-
+export class NavbarComponent implements OnInit {
   public isUserLoggedIn: boolean = false;
   public isUserAuthenticated: boolean = false;
-  public userData: UserData | undefined;
+  public user?: UserData;
   public isDropdownOpen: boolean = false;
-
 
   constructor(
     private router: Router,
-    private authService: AuthService
-    ){}
+    private authService: AuthService,
+  ) {}
 
-    ngOnInit(): void {
-      this.getUserLogged();
-
-    }
+  ngOnInit(): void {
+    this.getUserLogged();
+  }
 
   redirectToLogin() {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
-  logOut(){
+  logOut() {
     this.authService.removeAuthToken();
+    this.authService.removeUserIdFromStorage();
     this.isUserAuthenticated = false;
-    this.userData = undefined;
-    this.router.navigate(['/'])
+    this.user = undefined;
+    this.router.navigate(['/']);
   }
 
-  getUserLogged(){
+  getUserLogged() {
     this.isUserAuthenticated = this.authService.isAuthenticated();
-      if(this.isUserAuthenticated){
-        this.authService.getUserData().subscribe(
-          (userData: UserData) => {
-            this.userData = userData;
-          },
-          (error) => {
-            console.error('Error al obtener los datos del usuario:', error);
-          }
-        );
-      }
+    if (this.isUserAuthenticated) {
+      this.authService.getUserData().subscribe(
+        (response: UserData) => {
+          this.user = response;
+        },
+        (error) => {
+          console.log("Este es el error", error);
+        }
+      );
+    }
   }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
-
 }
