@@ -43,7 +43,7 @@ export class LoginComponent {
       this.authService.loginUser(userData).subscribe(
         (response: {user: any}) => {
           this.authService.setUserId(response.user.user_id);
-          this.router.navigate([`/userProfile/${response.user.user_id}`]);
+          this.router.navigate([`/userProfile`]);
         },
         (error) => {
           console.error('Login failed', error);

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UserData } from 'src/environments/interfaces/userData.interface';
 
@@ -12,23 +11,13 @@ export class UserProfileComponent {
   public isUserAuthenticated: boolean = false;
   public user?: UserData;
 
-  constructor(private authService: AuthService,
-    private route: ActivatedRoute
+  constructor(private authService: AuthService
     ) {}
 
   ngOnInit(): void {
-    this.getUserProfile();
+
   }
 
-  getUserProfile() {
-    this.authService.getUserData().subscribe(
-      (response: UserData) => {
-        this.user = response;
-      },
-      error => {
-        console.log("Este es el error", error);
-      }
-    );
-  }
+
 
 }

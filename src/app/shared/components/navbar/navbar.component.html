@@ -37,9 +37,9 @@
         <div class="dropdown-container">
           <ul class=" btn-color2">
             <li><a (click)="toggleDropdown()">Hola {{ user?.name | titlecase }} &dtrif;</a>
-              <ul class="dropdown" [ngClass]="{ 'show': isDropdownOpen }">
+              <ul class="dropdown" [ngClass]="{ 'show': isDropdownOpen }" #dropdown>
                 <li><a class="link"
-                  [routerLink]="['/userProfile', user?.id]">Mi Perfil
+                  [routerLink]="['/userProfile']">Mi Perfil
                 </a></li>
                 <li><a class="link" [routerLink]="['/']"> Home</a></li>
                 <li><a class="link" (click)="logOut()">
