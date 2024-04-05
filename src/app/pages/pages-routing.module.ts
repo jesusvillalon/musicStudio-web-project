@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserDataComponent } from './user-data/user-data.component';
+import { UserDataComponent } from './components/user-data/user-data.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { OrdersComponent } from './orders/orders.component';
-import { CreateWishListComponent } from './create-wish-list/create-wish-list.component';
-import { CheckOrderStatusComponent } from './check-order-status/check-order-status.component';
+import { CreateWishListComponent } from './components/create-wish-list/create-wish-list.component';
+import { CheckOrderStatusComponent } from './components/check-order-status/check-order-status.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
 
 
 
@@ -21,6 +23,11 @@ const routes: Routes = [
     { path: 'checkOrderStatus', component: CheckOrderStatusComponent },
     { path: '', redirectTo: '', pathMatch: 'full' }
   ]},
+  {path: 'products', component: ProductsComponent,
+   children: [
+    {path: ':category', component: ProductCategoryComponent}
+   ]
+  },
   {path: '**', redirectTo: 'home'}
 
 ];

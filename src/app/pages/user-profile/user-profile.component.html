@@ -1,13 +1,10 @@
 <app-navbar />
-<section class="userProfileContainer d-flex">
-  <div class="row">
-    <div class="sidebar-container col-4">
-      <app-side-bar />
-    </div>
-    <div class="user-container col-8">
-      <router-outlet></router-outlet>
-      <!-- <app-user-data/> -->
-    </div>
+<section class=" userProfileContainer">
+  <div class="sidebar-container">
+    <app-side-bar />
+  </div>
+  <div class="user-container">
+    <router-outlet></router-outlet>
   </div>
 </section>
 <app-footer />

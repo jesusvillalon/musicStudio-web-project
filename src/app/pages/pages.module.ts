@@ -6,10 +6,14 @@ import { SharedModule } from '../shared/shared.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { OrdersComponent } from './orders/orders.component';
-import { UserDataComponent } from './user-data/user-data.component';
+import { UserDataComponent } from './components/user-data/user-data.component';
 
-import { CreateWishListComponent } from './create-wish-list/create-wish-list.component';
-import { CheckOrderStatusComponent } from './check-order-status/check-order-status.component';
+import { CreateWishListComponent } from './components/create-wish-list/create-wish-list.component';
+import { CheckOrderStatusComponent } from './components/check-order-status/check-order-status.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ProductsComponent } from './products/products.component';
+import { OneProductComponent } from './components/one-product/one-product.component';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { CheckOrderStatusComponent } from './check-order-status/check-order-stat
     UserDataComponent,
     CreateWishListComponent,
     CheckOrderStatusComponent,
+    ShoppingCartComponent,
+    ProductsComponent,
+    OneProductComponent,
+    ProductCategoryComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, SharedModule],
 })

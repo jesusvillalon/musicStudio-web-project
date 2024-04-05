@@ -13,7 +13,7 @@ router.get('/:category', productsControllers.getProductsByCategory);
 
 //3.- viewOneProduct
 //localhost:3000/products/:product_id
-router.get('/product/:product_id', productsControllers.viewOneProduct);
+router.get('/products/:product_id', productsControllers.viewOneProduct);
 
 //4.- addReview
 //localhost:3000/products/:product_id/addReview

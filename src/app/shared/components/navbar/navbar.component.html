@@ -36,7 +36,10 @@
       <ng-template #logged>
         <div class="dropdown-container">
           <ul class=" btn-color2">
-            <li><a (click)="toggleDropdown()">Hola {{ user?.name | titlecase }} &dtrif;</a>
+            <li><a (click)="toggleDropdown()" class="text-start">
+              <p class="HelloWord">Hola</p>
+              <p class="userName">{{ user?.name | titlecase }} &dtrif;</p>
+            </a>
               <ul class="dropdown" [ngClass]="{ 'show': isDropdownOpen }" #dropdown>
                 <li><a class="link"
                   [routerLink]="['/userProfile']">Mi Perfil

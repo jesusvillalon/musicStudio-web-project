@@ -46,7 +46,6 @@ public categories2: HomeCategories[] = [
     categoryName: 'CABLES'
   },
 ];
-
 public benefits1: Benefits[] = [
   {
     image: '../../../assets/images/iconos/iconosVentajas/garantia.png',
@@ -77,7 +76,6 @@ public benefits2: Benefits[] = [
     title: '30 días de devoluciones'
   },
 ]
-
 public brands: Brands[] = [
   {image: '../../../assets/images/brands/akg.jpg',
   name: 'akg'
@@ -128,6 +126,8 @@ public brands: Brands[] = [
   name: 'yamaha'
   },
 ];
+
+
 
 
 }
