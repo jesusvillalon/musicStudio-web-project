@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap, throwError } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { UserData } from 'src/environments/interfaces/userData.interface';
 
 @Injectable({

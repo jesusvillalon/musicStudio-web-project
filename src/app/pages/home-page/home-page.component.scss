@@ -1,12 +1,14 @@
 .option-container {
   display: flex;
-  gap: 100px;
-  justify-content: center;
+  justify-content: space-evenly;
+  cursor: pointer;
   .option-links {
     color: black;
     text-decoration: none;
+    margin: 0 -20px
   }
 }
+
 .header-main-container {
   background-image: url("../../../assets/images/web-images/portadaHome2.jpeg");
   background-position: bottom;
@@ -46,12 +48,12 @@
     }
   }
 }
-.section2-container{
+.section2-container {
   margin: 100px 0;
-  .primero{
+  .primero {
     display: flex;
 
-    .item1{
+    .item1 {
       background-color: rgba(124, 137, 139, 0.2);
       height: 400px;
       flex-grow: 1;
@@ -59,14 +61,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      .itemText{
+      .itemText {
         margin-top: -150px;
       }
-      .itemImg{
+      .itemImg {
         width: 35%;
       }
     }
-    .item1-1{
+    .item1-1 {
       background-color: #b29e8420;
       height: 400px;
       flex-grow: 1;
@@ -74,49 +76,48 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      .itemText{
+      .itemText {
         margin-top: -150px;
       }
-      .itemImg{
+      .itemImg {
         width: 35%;
       }
     }
-
   }
-  .segundo{
+  .segundo {
     display: flex;
-    .item2{
+    .item2 {
       background-color: #b29e8410;
       width: 200px;
       height: 400px;
       flex-grow: 1;
       border-bottom-left-radius: 10px;
-      .item2Img{
+      .item2Img {
         width: 80%;
       }
     }
-    .item2-2{
+    .item2-2 {
       background-color: #b29e8410;
       width: 200px;
       height: 400px;
       flex-grow: 1;
       border-bottom-right-radius: 10px;
-      .item2Img{
+      .item2Img {
         width: 80%;
       }
     }
-    .item3{
-      background-color: rgba(124, 137, 139, 0.2);;
+    .item3 {
+      background-color: rgba(124, 137, 139, 0.2);
       width: 200px;
       height: 400px;
       flex-grow: 3;
       display: flex;
       align-items: center;
       justify-content: center;
-      .itemText{
+      .itemText {
         margin-top: -150px;
       }
-      .itemImg{
+      .itemImg {
         width: 35%;
       }
     }

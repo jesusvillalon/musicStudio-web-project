@@ -2,13 +2,13 @@
   <app-navbar />
 </nav>
 <div>
-  <div class="option-container text-center mt-3 mb-4">
-    <a class="option-links" href="">SOFTWARE</a>
-    <a class="option-links" href="">AUDIO</a>
-    <a class="option-links" href="">MICRÓFONOS</a>
-    <a class="option-links" href="">MIDI</a>
-    <a class="option-links" href="">CABLES</a>
-    <a class="option-links" href="">OFERTAS</a>
+  <div class="option-container mt-3 mb-4">
+    <a class="option-links" (click)="onCategorySelect('software')">SOFTWARE</a>
+    <a class="option-links" (click)="onCategorySelect('auriculares')">AURICULARES</a>
+    <a class="option-links" (click)="onCategorySelect('microfono')">MICRÓFONOS</a>
+    <a class="option-links" (click)="onCategorySelect('midi')">MIDI</a>
+    <a class="option-links" (click)="onCategorySelect('cables')">CABLES</a>
+    <a class="option-links" (click)="onCategorySelect('ofertas')">OFERTAS</a>
   </div>
   <header class="header-main-container">
     <div
@@ -83,11 +83,10 @@
   <section class="section3-container text-center">
     <h3 class="section1-title mb-5">NUESTROS PRODUCTOS</h3>
     <div class="row">
-      <div
-        class="categoriesCard-container d-flex flex-wrap justify-content-center"
-      >
-        <div *ngFor="let category of categories1" class="card-container mx-5">
-          <a href="#" class="cardLink">
+      <div class="categoriesCard-container d-flex flex-wrap justify-content-center">
+        <div *ngFor="let category of categories1" class="card-container mx-5"
+          (click)="onCategorySelect(category.categoryName)">
+          <a class="cardLink">
             <figure class="cardBody">
               <img
                 [src]="category.image"
@@ -96,14 +95,13 @@
               />
             </figure>
           </a>
-          <h6 class="card-title mt-3 mb-4">{{ category.categoryName }}</h6>
+          <h6 class="card-title mt-3 mb-4">{{ category.categoryTitle }}</h6>
         </div>
       </div>
-      <div
-        class="categoriesCard-container d-flex flex-wrap justify-content-center"
-      >
-        <div *ngFor="let category of categories2" class="card-container mx-5">
-          <a href="#" class="cardLink">
+      <div class="categoriesCard-container d-flex flex-wrap justify-content-center">
+        <div *ngFor="let category of categories2" class="card-container mx-5"
+          (click)="onCategorySelect(category.categoryName)">
+          <a class="cardLink">
             <figure class="cardBody">
               <img
                 [src]="category.image"
@@ -112,9 +110,10 @@
               />
             </figure>
           </a>
-          <h6 class="card-title mt-3 mb-4">{{ category.categoryName }}</h6>
+          <h6 class="card-title mt-3 mb-4">{{ category.categoryTitle }}</h6>
         </div>
       </div>
+
     </div>
   </section>
   <section class="section4-container text-center">
