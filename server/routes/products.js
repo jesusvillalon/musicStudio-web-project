@@ -12,8 +12,8 @@ router.get('/', productsControllers.getAllProducts);
 router.get('/:category', productsControllers.getProductsByCategory);
 
 //3.- viewOneProduct
-//localhost:3000/products/:product_id
-router.get('/products/:product_id', productsControllers.viewOneProduct);
+//localhost:3000/products/:category/:product_id
+router.get('/:category/:product_id', productsControllers.viewOneProduct);
 
 //4.- addReview
 //localhost:3000/products/:product_id/addReview

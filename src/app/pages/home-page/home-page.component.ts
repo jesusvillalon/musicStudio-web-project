@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
     this.loadSelectedCategory();
   }
 
-  getProductCategroy(category: string) {
+  getProductCategory(category: string) {
     this.pagesService
       .getProductByCategory(category)
       .subscribe((product) => (this.products = product));
@@ -39,7 +39,7 @@ export class HomePageComponent implements OnInit {
   onCategorySelect(selectedCategory: string) {
     this.category = selectedCategory;
     localStorage.setItem('selectedCategory', selectedCategory);
-    this.getProductCategroy(this.category);
+    this.getProductCategory(this.category);
     this.router.navigate(['/products', selectedCategory]);
   }
 
@@ -47,7 +47,7 @@ export class HomePageComponent implements OnInit {
     const savedCategory = localStorage.getItem('selectedCategory');
     if (savedCategory) {
       this.category = savedCategory;
-      this.getProductCategroy(this.category);
+      this.getProductCategory(this.category);
 
     }
   }

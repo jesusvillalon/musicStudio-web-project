@@ -14,6 +14,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductsComponent } from './products/products.component';
 import { OneProductComponent } from './components/one-product/one-product.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductCategoryComponent } from './components/product-category/product-
     ProductsComponent,
     OneProductComponent,
     ProductCategoryComponent,
+    ReviewsComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, SharedModule],
 })

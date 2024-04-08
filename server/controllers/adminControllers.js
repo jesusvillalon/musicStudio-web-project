@@ -46,10 +46,10 @@ class adminControllers {
   };
 
   addProduct = (req, res) => {
-    const { name, category, description, img, price, availability, rating } =
+    const { name, brand, category, description, img, price, availability, rating } =
       req.body;
 
-    let sqlProduct = `INSERT INTO product (name, category, description, price, availability, rating, img) VALUES ('${name}', '${category}', '${description}', '${price}', '${availability}', '${rating}', '${img}')`;
+    let sqlProduct = `INSERT INTO product (name, brand, category, description, price, availability, rating, img) VALUES ('${name}', '${brand}', '${category}', '${description}', '${price}', '${availability}', '${rating}', '${img}')`;
 
     connection.query(sqlProduct, (error, result) => {
       error ? res.status(400).json(error) : res.status(200).json(result);
@@ -59,15 +59,15 @@ class adminControllers {
   editProduct = (req, res) => {
     let product_id = req.params.product_id;
 
-    const { name, category, description, price, availability, rating } =
+    const { name, brand, category, description, price, availability, rating } =
       req.body;
     let img = "";
 
-    let sql = `UPDATE product SET name = '${name}', category = '${category}', description = '${description}', price = '${price}', availability = '${availability}', rating = '${rating}' WHERE product_id = '${product_id}'`;
+    let sql = `UPDATE product SET name = '${name}', brand = '${brand}', category = '${category}', description = '${description}', price = '${price}', availability = '${availability}', rating = '${rating}' WHERE product_id = '${product_id}'`;
 
     if (req.file != undefined) {
       img = req.file.filename;
-      sql = `UPDATE product SET name = '${name}', category = '${category}', description = '${description}', price = '${price}', availability = '${availability}', rating = '${rating}', img = '${img}' WHERE product_id = '${product_id}'`;
+      sql = `UPDATE product SET name = '${name}', brand = '${brand}', category = '${category}', description = '${description}', price = '${price}', availability = '${availability}', rating = '${rating}', img = '${img}' WHERE product_id = '${product_id}'`;
     }
 
     connection.query(sql, (error, result) => {

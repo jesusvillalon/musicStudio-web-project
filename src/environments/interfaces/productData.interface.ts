@@ -9,6 +9,7 @@ export interface Review {
 export interface ProductData {
   product_id: string;
   name: string;
+  brand: string;
   category: string;
   description: string;
   price: number;

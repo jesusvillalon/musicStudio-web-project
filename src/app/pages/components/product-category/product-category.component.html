@@ -1,3 +1,25 @@
-<div class="category-container">
-<h1>Esta es una categoría</h1>
+<div class="category-container container">
+  <h1>Esta es una categoría</h1>
+
+  <div class="productCard-container">
+    <ng-container *ngFor="let product of products">
+      <button
+        class="btn btn-secondary mb-2"
+        (click)="viewProduct(category, product.product_id)"
+      >
+        Ver producto
+        <!-- Cambiar esto por la imagen que hará de "botón"
+      para ver el producto -->
+      </button>
+
+      <p class="productData">Nombre: {{ product.name }}</p>
+      <p class="productData">Marca: {{ product.brand }}</p>
+      <p class="productData">Descripción: {{ product.description }}</p>
+      <p class="productData">Precio: {{ product.price }}</p>
+      <p class="productData"></p>
+      <p class="productData"></p>
+      <button class="btn btn-dark me-2">Añadir a Wishlist</button>
+      <button class="btn btn-dark">Añadir al carrito</button>
+    </ng-container>
+  </div>
 </div>

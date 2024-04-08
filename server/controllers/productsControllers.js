@@ -31,12 +31,13 @@ class productsControllers {
 
   viewOneProduct = (req, res) => {
     let product_id = req.params.product_id;
+    let category = req.params.category;
 
-    let sqlProduct = `SELECT * FROM product WHERE product_id = '${product_id}'`;
+    let sqlProduct = `SELECT * FROM product WHERE product_id = '${product_id}' AND category = '${category}'`;
 
     connection.query(sqlProduct, (error, result) => {
       error ? res.status(400).json(error)
-            : res.status(200).json(result);
+            : res.status(200).json(result[0]);
     })
 
   }

@@ -6,7 +6,7 @@ export const initialCategories: InitialCategories[] = [
   {categoryTitle: 'software'},
   {categoryTitle: 'auriculares'},
   {categoryTitle: 'midi'},
-  {categoryTitle: 'microfono'},
+  {categoryTitle: 'microfonos'},
   {categoryTitle: 'cables'},
   {categoryTitle: 'ofertas'},
 ];

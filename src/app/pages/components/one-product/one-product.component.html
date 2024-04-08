@@ -1,1 +1,11 @@
-<p>one-product works!</p>
+
+<div class="oneProduct-container container">
+  <h2>Aquí obtengo los datos de un producto</h2>
+  <p>Nombre: {{productData?.name}}</p>
+  <p>Precio: {{productData?.price}}</p>
+  <p>Descripción: {{productData?.description}}</p>
+  <button class="btn btn-dark"
+  (click)="redirectToCategory()"
+  >Volver</button>
+</div>
+

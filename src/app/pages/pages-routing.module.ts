@@ -9,6 +9,8 @@ import { CreateWishListComponent } from './components/create-wish-list/create-wi
 import { CheckOrderStatusComponent } from './components/check-order-status/check-order-status.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { OneProductComponent } from './components/one-product/one-product.component';
 
 
 
@@ -21,11 +23,13 @@ const routes: Routes = [
     { path: 'wishlist', component: WishlistComponent },
     { path: 'orders', component: OrdersComponent },
     { path: 'checkOrderStatus', component: CheckOrderStatusComponent },
+    { path: 'reviews', component: ReviewsComponent },
     { path: '', redirectTo: '', pathMatch: 'full' }
   ]},
   {path: 'products', component: ProductsComponent,
    children: [
-    {path: ':category', component: ProductCategoryComponent}
+    {path: ':category', component: ProductCategoryComponent},
+    {path: ':category/:product_id', component: OneProductComponent}
    ]
   },
   {path: '**', redirectTo: 'home'}
