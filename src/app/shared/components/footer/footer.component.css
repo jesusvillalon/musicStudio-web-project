@@ -1,0 +1,24 @@
+.footer-container {
+  background-color: #7c898b;
+  color: white;
+  padding: 100px 50px 25px 50px;
+}
+.footer-container .titleText {
+  text-decoration: underline;
+}
+.footer-container .logo .logoImg {
+  width: 200px;
+}
+.footer-container .contactInformation p {
+  margin: 2px 0;
+}
+.footer-container .info a {
+  margin: 2px 0;
+}
+.footer-container .rrss img {
+  width: 60%;
+  filter: invert(100%);
+}
+.footer-container h6 {
+  margin: 100px 0 0 0;
+}/*# sourceMappingURL=footer.component.css.map */

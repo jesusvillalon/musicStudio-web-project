@@ -1,0 +1,94 @@
+.search-input {
+  border: none;
+}
+
+.search-input:hover {
+  background-color: transparent;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.searchLogo {
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.3));
+}
+
+.btn-color,
+.btn-color2 {
+  border: none;
+  color: black;
+  font-size: 18px;
+}
+
+.btn-color:hover {
+  background-color: #7c898b;
+  color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.HelloWord {
+  margin: 10px 0 -6px 0;
+}
+
+.dropdown {
+  margin-top: 20px;
+}
+
+.cartLogoButton {
+  cursor: pointer;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.dropdown-container {
+  margin-top: 25px;
+}
+.dropdown-container ul li {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+  padding: 0 30px;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+}
+.dropdown-container li a {
+  text-decoration: none;
+  color: black;
+}
+.dropdown-container li .link:hover {
+  color: #7c898b;
+}
+.dropdown-container li:hover {
+  cursor: pointer;
+}
+.dropdown-container ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 40px;
+  padding-left: 0;
+  left: 0;
+  display: none;
+  background: white;
+}
+.dropdown-container ul li ul.show {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  min-width: 150px;
+  text-align: left;
+  padding-top: 20px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.3764705882);
+  z-index: 2;
+}
+.dropdown-container ul li ul li {
+  clear: both;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+  border-style: none;
+}
+.dropdown-container ul li ul li a:hover {
+  text-decoration: none;
+  padding-left: 10px;
+  border-left: 1px solid #7c898b;
+  transition: all 0.3s ease;
+}/*# sourceMappingURL=navbar.component.css.map */

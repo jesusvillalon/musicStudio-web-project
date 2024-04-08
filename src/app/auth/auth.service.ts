@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { Observable, tap, throwError } from 'rxjs';
 import { UserData } from 'src/environments/interfaces/userData.interface';
 
 @Injectable({
@@ -20,9 +20,9 @@ export class AuthService {
   loginUser(userData: {
     email: string;
     password: string;
-  }): Observable<{ token: string; user: any }> {
+  }): Observable<{ token: string; user: UserData }> {
     return this.http
-      .post<{ token: string; user: any }>(`${this.baseUrl}/login`, userData)
+      .post<{ token: string; user: UserData }>(`${this.baseUrl}/login`, userData)
       .pipe(
         tap((response: { token: string; user: any }) => {
           this.setAuthToken(response.token);
@@ -36,6 +36,17 @@ export class AuthService {
   getUserData(): Observable<UserData> {
     const userId = localStorage.getItem('userId');
     return this.http.get<UserData>(`${this.baseUrl}/userProfile/${userId}`);
+  }
+
+  editUserData(userData: UserData): Observable<UserData> {
+    const user_id = this.getUserId();
+    if (!user_id) {
+      console.error('El userId es undefined o null. No se puede editar el usuario.');
+      return throwError('El userId es undefined o null.');
+    }
+
+    console.log('Valor de user_id:', user_id);
+    return this.http.put<UserData>(`${this.baseUrl}/editUser/${user_id}`, userData)
   }
 
   setAuthToken(token: string) {

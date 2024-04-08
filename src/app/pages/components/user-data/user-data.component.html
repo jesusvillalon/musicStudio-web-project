@@ -1,34 +1,214 @@
 <section class="userDataContainer">
   <div class="title-button-container d-flex justify-content-between">
     <h3>Datos personales</h3>
-    <button class="btn btn-dark">Editar datos</button>
+    <button class="btn btn-dark"
+    (click)="openEditButton()"
+    >Editar datos</button>
   </div>
   <hr />
- <div>
-  <div class="data-container d-flex">
-    <div class="data-title">
-      <p>Nombre:</p>
-      <p>Apellido:</p>
-      <p>Dni: </p>
-      <p>Teléfono: </p>
-      <p>Dirección:</p>
-      <p>Ciudad: </p>
-      <p>Provincia: </p>
-      <p>Código postal: </p>
-      <p>Email: </p>
-    </div>
-    <div class="data-info ms-5">
-      <p>{{ user?.name }}</p>
-      <p>{{ user?.lastname }}</p>
-      <p>{{ user?.dni }}</p>
-      <p>{{ user?.phone_number }}</p>
-      <p>{{ user?.address }}</p>
-      <p>{{ user?.city }}</p>
-      <p>{{ user?.province }}</p>
-      <p>{{ user?.zip_code }}</p>
-      <p>{{ user?.email }}</p>
+  <div>
+    <div class="data-container d-flex">
+      <div class="data-title">
+        <p>Nombre:</p>
+        <p>Apellido:</p>
+        <p>Dni:</p>
+        <p>Teléfono:</p>
+        <p>Dirección:</p>
+        <p>Ciudad:</p>
+        <p>Provincia:</p>
+        <p>Código postal:</p>
+        <p>Email:</p>
+      </div>
+      <div class="data-info ms-5">
+        <div *ngIf="!openEdit">
+          <p>{{ user?.name }}</p>
+          <p>{{ user?.lastname }}</p>
+          <p>{{ user?.dni }}</p>
+          <p>{{ user?.phone_number }}</p>
+          <p>{{ user?.address }}</p>
+          <p>{{ user?.city }}</p>
+          <p>{{ user?.province }}</p>
+          <p>{{ user?.zip_code }}</p>
+          <p>{{ user?.email }}</p>
+        </div>
+      </div>
+      <div *ngIf="openEdit"
+         class="editFormContainer">
+          <form class="container registerForm"
+          [formGroup]="userForm"
+          (ngSubmit)="saveUserData()"
+          >
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Introduzca nombre"
+                  formControlName="name"
+                />
+                <span *ngIf="isValidField('name')" class="form-text text-danger">
+                  {{ getFieldMessageError("name") }}
+                </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Introduzca apellidos"
+                  formControlName="lastname"
+                />
+                <span *ngIf="isValidField('lastname')" class="form-text text-danger">
+                  {{ getFieldMessageError("lastname") }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 mb-3">
+                <div class="">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Introduzca dni"
+                    formControlName="dni"
+                  />
+                  <span *ngIf="isValidField('dni')" class="form-text text-danger">
+                    {{ getFieldMessageError("dni") }}
+                  </span>
+                </div>
+              </div>
+              <div class="col-6 mb-3">
+                <div class="">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Introduzca teléfono"
+                    formControlName="phone_number"
+                  />
+                  <span *ngIf="isValidField('phone_number')" class="form-text text-danger">
+                    {{ getFieldMessageError("phone_number") }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Introduzca dirección"
+                  formControlName="address"
+                />
+                <span *ngIf="isValidField('address')" class="form-text text-danger">
+                  {{ getFieldMessageError("address") }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 mb-3">
+                <div class="">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Introduzca ciudad"
+                    formControlName="city"
+                  />
+                  <span *ngIf="isValidField('city')" class="form-text text-danger">
+                  {{ getFieldMessageError("city") }}
+                </span>
+                </div>
+              </div>
+              <div class="col-6 mb-3">
+                <div class="">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Introduzca provincia"
+                    formControlName="province"
+                  />
+                  <span *ngIf="isValidField('province')" class="form-text text-danger">
+                  {{ getFieldMessageError("province") }}
+                </span>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Introduzca código postal"
+                  formControlName="zip_code"
+                />
+                <span *ngIf="isValidField('zip_code')" class="form-text text-danger">
+                  {{ getFieldMessageError("zip_code") }}
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  formControlName="email"
+                />
+
+                <span *ngIf="isValidField('email')" class="form-text text-danger">
+                  {{ getFieldMessageError('email') }}
+                </span>
+
+                <span *ngIf="!isEmailValid && userForm.get('email')?.touched" class="form-text text-danger">
+                  Debe ser un email
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Introduzca contraseña"
+                  formControlName="password"
+                />
+
+                <span *ngIf="isValidField('password')" class="form-text text-danger">
+                  La contraseña debe de ser mayor de 8 caracteres.
+                </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Confirmar contraseña"
+                  formControlName="confirmPassword"
+                />
+
+                <span *ngIf="isValidField('confirmPassword')" class="form-text text-danger">
+                  Las contraseñas deben de ser iguales
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col register-submit-button-container">
+                <button
+                  class="btn btn-dark yregister-submit-button mt-3"
+                  type="submit"
+                  (ngSubmit)="saveUserData()"
+                >
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
     </div>
   </div>
- </div>
-
 </section>

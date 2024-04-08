@@ -1,0 +1,37 @@
+.login-container {
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.319);
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+.login-container .loginFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 80px;
+}
+.login-container .loginFormContainer .btn-bg {
+  background-color: #7c898b;
+  color: white;
+}
+.login-container .loginFormContainer .registerLink {
+  cursor: pointer;
+  color: #b29e84;
+}
+.login-container .imageFormContainer .loginImage {
+  width: 100%;
+  padding-right: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.282);
+}/*# sourceMappingURL=login.component.css.map */

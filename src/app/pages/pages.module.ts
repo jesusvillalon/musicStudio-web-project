@@ -15,6 +15,7 @@ import { ProductsComponent } from './products/products.component';
 import { OneProductComponent } from './components/one-product/one-product.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,6 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     ProductCategoryComponent,
     ReviewsComponent,
   ],
-  imports: [CommonModule, PagesRoutingModule, SharedModule],
+  imports: [CommonModule, PagesRoutingModule, SharedModule, ReactiveFormsModule],
 })
 export class PagesModule {}

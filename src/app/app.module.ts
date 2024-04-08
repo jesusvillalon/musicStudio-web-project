@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +20,8 @@ import { AppComponent } from './app.component';
     PagesModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

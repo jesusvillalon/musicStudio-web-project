@@ -117,7 +117,7 @@ class userControllers {
         if (err) console.log(err);
         bcrypt.hash(password, saltRounds, (err, hash) => {
           if (err) console.log(err);
-          let sqlEditAll = `UPDATE user SET name = '${name}', lastname = '${lastname}', type = '${type}', dni = '${dni}', address = '${address}', city =
+          let sqlEditAll = `UPDATE user SET name = '${name}', lastname = '${lastname}', type = 2, dni = '${dni}', address = '${address}', city =
           '${city}', province = '${province}', zip_code = '${zip_code}', phone_number = '${phone_number}', email = '${email}', password = '${hash}' WHERE user_id = '${user_id}'`;
 
           connection.query(sqlEditAll, (error, result) => {

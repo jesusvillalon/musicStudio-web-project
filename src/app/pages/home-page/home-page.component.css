@@ -1,0 +1,193 @@
+.option-container {
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.option-container .option-links {
+  color: black;
+  text-decoration: none;
+  margin: 0 -20px;
+}
+
+.header-main-container {
+  background-image: url("../../../assets/images/web-images/portadaHome2.jpeg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+.header-main-container .header-container {
+  color: white;
+  padding: 3%;
+  letter-spacing: 10px;
+}
+.header-main-container .header-container .p-Title {
+  font-size: 25px;
+}
+.header-main-container .header-container .h1-Title {
+  font-size: 80px;
+  font-weight: 600;
+  margin-bottom: 26%;
+}
+
+.section1-container {
+  margin-top: 100px;
+}
+.section1-container .cardBody {
+  width: 200px;
+  height: 100px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.section1-container .cardBody .benefitIcons {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  width: 30%;
+}
+
+.section2-container {
+  margin: 100px 0;
+}
+.section2-container .primero {
+  display: flex;
+}
+.section2-container .primero .item1 {
+  background-color: rgba(124, 137, 139, 0.2);
+  height: 400px;
+  flex-grow: 1;
+  border-top-left-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section2-container .primero .item1 .itemText {
+  margin-top: -150px;
+}
+.section2-container .primero .item1 .itemImg {
+  width: 35%;
+}
+.section2-container .primero .item1-1 {
+  background-color: rgba(178, 158, 132, 0.1254901961);
+  height: 400px;
+  flex-grow: 1;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section2-container .primero .item1-1 .itemText {
+  margin-top: -150px;
+}
+.section2-container .primero .item1-1 .itemImg {
+  width: 35%;
+}
+.section2-container .segundo {
+  display: flex;
+}
+.section2-container .segundo .item2 {
+  background-color: rgba(178, 158, 132, 0.062745098);
+  width: 200px;
+  height: 400px;
+  flex-grow: 1;
+  border-bottom-left-radius: 10px;
+}
+.section2-container .segundo .item2 .item2Img {
+  width: 80%;
+}
+.section2-container .segundo .item2-2 {
+  background-color: rgba(178, 158, 132, 0.062745098);
+  width: 200px;
+  height: 400px;
+  flex-grow: 1;
+  border-bottom-right-radius: 10px;
+}
+.section2-container .segundo .item2-2 .item2Img {
+  width: 80%;
+}
+.section2-container .segundo .item3 {
+  background-color: rgba(124, 137, 139, 0.2);
+  width: 200px;
+  height: 400px;
+  flex-grow: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section2-container .segundo .item3 .itemText {
+  margin-top: -150px;
+}
+.section2-container .segundo .item3 .itemImg {
+  width: 35%;
+}
+
+.section3-container {
+  margin-top: 100px;
+}
+.section3-container .cardLink {
+  --hover: 0;
+  width: 200px;
+}
+.section3-container .cardLink .cardBody {
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(90deg, rgb(124, 137, 139) 0%, rgb(255, 255, 255) 100%);
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.section3-container .cardLink .cardBody .categoryImg {
+  position: absolute;
+  left: 25%;
+  top: 15%;
+  width: 50%;
+  transform: translateX(calc(var(--hover) * 0%)) scale(calc(1 + var(--hover) * 0.2));
+  transition: transform 0.3s;
+}
+.section3-container .cardLink:hover {
+  --hover: 1;
+  cursor: pointer;
+}
+
+.section4-container {
+  margin: 150px 0;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1750px);
+  }
+}
+.section4-container .slider {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 250px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 1500px;
+  display: flex;
+  align-items: center;
+}
+.section4-container .slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.section4-container .slider::before {
+  left: 0;
+  top: 0;
+}
+.section4-container .slider .slide-track {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: 3500px;
+}
+.section4-container .slider .slide {
+  height: 150px;
+  width: 250px;
+}/*# sourceMappingURL=home-page.component.css.map */
