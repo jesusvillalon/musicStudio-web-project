@@ -106,7 +106,7 @@ export class UserDataComponent implements OnInit {
   saveUserData() {
     if (this.userForm.valid || this.isPasswordFieldEmpty()) {
       let editedUserData = this.userForm.value;
-      if(this.isPasswordFieldEmpty()){
+      if (this.isPasswordFieldEmpty()) {
         delete editedUserData.password;
         delete editedUserData.confirmPassword;
       }
@@ -122,11 +122,11 @@ export class UserDataComponent implements OnInit {
       );
     }
   }
-
-  private isPasswordFieldEmpty(): boolean{
+  // Manejamos aquí la opción de editar los datos sin tener que rellenar los
+  // campos de la contraseña si no queremos cambiarla
+  private isPasswordFieldEmpty(): boolean {
     const password = this.userForm.get('password')?.value;
     const confirmPassword = this.userForm.get('confirmPassword')?.value;
     return !password.trim() && !confirmPassword.trim();
   }
-
 }

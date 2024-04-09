@@ -10,7 +10,7 @@
     <div class="data-container d-flex">
       <div class="data-title">
         <p>Nombre:</p>
-        <p>Apellido:</p>
+        <p>Apellidos:</p>
         <p>Dni:</p>
         <p>Teléfono:</p>
         <p>Dirección:</p>
@@ -32,6 +32,7 @@
           <p>{{ user?.email }}</p>
         </div>
       </div>
+      <!-- Formulario de edición -->
       <div *ngIf="openEdit"
          class="editFormContainer">
           <form class="container registerForm"

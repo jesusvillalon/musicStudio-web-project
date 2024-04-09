@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    NgbModule,
 
   ],
   providers: [],

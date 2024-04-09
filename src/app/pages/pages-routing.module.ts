@@ -11,6 +11,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { OneProductComponent } from './components/one-product/one-product.component';
+import { OneWishlistComponent } from './components/one-wishlist/one-wishlist.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   children: [
     { path: '', component: UserDataComponent },
     { path: 'createWishlist', component: CreateWishListComponent },
+    { path: 'oneWishlist', component: OneWishlistComponent },
     { path: 'wishlist', component: WishlistComponent },
     { path: 'orders', component: OrdersComponent },
     { path: 'checkOrderStatus', component: CheckOrderStatusComponent },

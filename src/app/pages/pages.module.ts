@@ -16,6 +16,7 @@ import { OneProductComponent } from './components/one-product/one-product.compon
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OneWishlistComponent } from './components/one-wishlist/one-wishlist.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     OneProductComponent,
     ProductCategoryComponent,
     ReviewsComponent,
+    OneWishlistComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, SharedModule, ReactiveFormsModule],
 })

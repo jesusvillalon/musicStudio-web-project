@@ -1,4 +1,23 @@
 
 <section class="getAllWishLists-container">
-  <h2>Obtengo mis wishlist</h2>
+  <div class="title-button-container d-flex justify-content-between">
+    <h2>Mis listas de deseo</h2>
+    <button class="btn btn-dark"
+    (click)="isButtonOpened()"
+    >Crear lista</button>
+  </div>
+  <div class="wishlistContent-container">
+    <div class="allWishlists"
+    *ngIf="!createWishlistButton"
+    >
+      <h4>Obtengo mis wishlist</h4>
+    </div>
+    <div class="createWishlist"
+    *ngIf="createWishlistButton"
+    >
+      <app-create-wish-list/>
+    </div>
+  </div>
+
+
 </section>

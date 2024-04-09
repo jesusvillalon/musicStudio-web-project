@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent {
+  public createWishlistButton: boolean = false;
+
+  constructor(){}
+
+  isButtonOpened(){
+    this.createWishlistButton = !this.createWishlistButton;
+  }
 
 }
