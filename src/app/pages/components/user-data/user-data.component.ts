@@ -104,9 +104,12 @@ export class UserDataComponent implements OnInit {
   }
 
   saveUserData() {
-    console.log('Guardando datos...');
-    if (this.userForm.valid) {
-      const editedUserData = this.userForm.value;
+    if (this.userForm.valid || this.isPasswordFieldEmpty()) {
+      let editedUserData = this.userForm.value;
+      if(this.isPasswordFieldEmpty()){
+        delete editedUserData.password;
+        delete editedUserData.confirmPassword;
+      }
       this.authService.editUserData(editedUserData).subscribe(
         (response) => {
           console.log('Datos editados:', response);
@@ -118,6 +121,12 @@ export class UserDataComponent implements OnInit {
         }
       );
     }
+  }
+
+  private isPasswordFieldEmpty(): boolean{
+    const password = this.userForm.get('password')?.value;
+    const confirmPassword = this.userForm.get('confirmPassword')?.value;
+    return !password.trim() && !confirmPassword.trim();
   }
 
 }

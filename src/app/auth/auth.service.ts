@@ -39,13 +39,10 @@ export class AuthService {
   }
 
   editUserData(userData: UserData): Observable<UserData> {
-    const user_id = this.getUserId();
+    const user_id = localStorage.getItem('userId');
     if (!user_id) {
       console.error('El userId es undefined o null. No se puede editar el usuario.');
-      return throwError('El userId es undefined o null.');
     }
-
-    console.log('Valor de user_id:', user_id);
     return this.http.put<UserData>(`${this.baseUrl}/editUser/${user_id}`, userData)
   }
 
